@@ -1,0 +1,3 @@
+rootProject.name='UHFDemo'
+include ':app', ':SunmiRFID-SDK-release'
+include ':rfidlib'

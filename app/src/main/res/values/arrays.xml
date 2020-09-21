@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="session_id_list">
+        <item>"S0"</item>
+        <item>"S1"</item>
+        <item>"S2"</item>
+        <item>"S3"</item>
+    </string-array>
+    <string-array name="inventoried_flag_list">
+        <item>"A"</item>
+        <item>"B"</item>
+    </string-array>
+</resources>
