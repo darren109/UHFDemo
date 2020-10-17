@@ -442,7 +442,7 @@ public class Tag6cOperateActivity extends AppCompatActivity implements View.OnCl
         public void onTag(byte cmd, byte state, DataParameter tag) throws RemoteException {}
 
         @Override
-        public void onFiled(byte cmd, byte errorCode, String msg) throws RemoteException {
+        public void onFailed(byte cmd, byte errorCode, String msg) throws RemoteException {
             if (!isDestroyed()) {
                 runOnUiThread(() -> mLogList.writeLog(String.format("handle 0x%02X fail, error code: 0x%02X %s", cmd, errorCode, msg), ParamCts.FAIL));
             }

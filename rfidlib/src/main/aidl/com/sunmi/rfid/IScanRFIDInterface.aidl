@@ -1,12 +1,14 @@
 package com.sunmi.rfid;
 
 import com.sunmi.rfid.IReaderCall;
+import com.sunmi.rfid.IFirmwareUpdateCall;
 
 interface IScanRFIDInterface {
     /**
      * Get RFID model
      * 100 : NONE
      * 101 : R2000
+     * 102 : INNER
      */
     int getScanModel();
     
@@ -427,5 +429,53 @@ interface IScanRFIDInterface {
      */
     void reset();
 
+   //----------------Battery---------------
 
+    /**
+     * get charge number of times
+     */
+    void getBatteryChargeNumTimes();
+
+    //----------------Firmware Update---------------
+
+   /**
+    * Firmware Update
+    *
+    * @param binFile update file path
+    * @param call update call
+    */
+    void firmwareUpdate(in String binFile, in IFirmwareUpdateCall call);
+
+    //----------------6C Tag Operation---------------
+
+    /**
+     * set impinj save tag focus
+     */
+    void setImpinjSaveTagFocus(in boolean blnOpen);
+
+    //----------------Mask filter---------------
+    /**
+     * Set the mask filter the Tag.
+     *
+     * @param btMaskNo   Mask Filter No
+     * @param btTarget   Set the inventory way(s0,s1,s2 or s3),you must use you set target to inventory the tag.
+     * @param btAction   The match tag or not Action,you can see the detail of this command.
+     * @param btMembank  The select mask region,EPC,TID or USER.
+     * @param btStartAdd The mask start address(according to bit).
+     * @param btMaskLen  The mask length (according to bit).
+     * @param maskValue  The mask value.
+     */
+    void setTagMask(in byte btMaskNo, in byte btTarget, in byte btAction, in byte btMembank, in byte btStartAdd, in byte btMaskLen, in byte[] maskValue);
+
+    /**
+     * Clear the mask setting.
+     *
+     * @param btMaskNo Mask Filter No
+     */
+    void clearTagMask(in byte btMaskNo);
+
+    /**
+     * Get the mask setting.
+     */
+    void getTagMask();
 }

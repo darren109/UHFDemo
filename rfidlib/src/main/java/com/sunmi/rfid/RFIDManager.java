@@ -15,6 +15,19 @@ import android.util.Log;
  * RFID Manager
  */
 public class RFIDManager {
+    /**
+     * 未检测到RFID设备
+     */
+    public static final int NONE = 100;
+    /**
+     * 外接UHF - R2000
+     */
+    public static final int UHF_R2000 = 101;
+    /**
+     * L2s内置RFID
+     */
+    public static final int INNER = 102;
+
     private static final String TAG = "RFIDManager";
     private static final int RE_CONNECT = 20;
 
@@ -48,6 +61,10 @@ public class RFIDManager {
             if (printLog) Log.w(TAG, "Service error Disconnected!");
         }
     };
+
+    public boolean isConnect() {
+        return isConnect && scanInterface != null;
+    }
 
     public void connect(Context context) {
         if (context == null) throw new RuntimeException("Parameter context is Null");

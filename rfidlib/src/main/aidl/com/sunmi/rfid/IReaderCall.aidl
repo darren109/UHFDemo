@@ -17,5 +17,5 @@ interface IReaderCall {
     /**
      * Handle Failed result
      */
-    void onFiled(in byte cmd, in byte errorCode, in String msg);
+    void onFailed(in byte cmd, in byte errorCode, in String msg);
 }

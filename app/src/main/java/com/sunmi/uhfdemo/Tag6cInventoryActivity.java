@@ -142,6 +142,7 @@ public class Tag6cInventoryActivity extends AppCompatActivity implements View.On
         });
         refreshText();
         refreshList();
+        RFIDManager.getInstance().getHelper().getBatteryChargeNumTimes();
     }
 
 
@@ -360,7 +361,7 @@ public class Tag6cInventoryActivity extends AppCompatActivity implements View.On
         }
 
         @Override
-        public void onFiled(byte cmd, byte errorCode, String msg) throws RemoteException {
+        public void onFailed(byte cmd, byte errorCode, String msg) throws RemoteException {
             if (!isDestroyed()) {
                 runOnUiThread(() -> {
                     switch (cmd) {

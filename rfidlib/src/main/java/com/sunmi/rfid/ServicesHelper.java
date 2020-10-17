@@ -284,6 +284,36 @@ public class ServicesHelper implements RFIDHelper {
         handleError(() -> scan.reset());
     }
 
+    @Override
+    public void getBatteryChargeNumTimes() {
+        handleError(() -> scan.getBatteryChargeNumTimes());
+    }
+
+    @Override
+    public void firmwareUpdate(String binFile, IFirmwareUpdateCall call) {
+        handleError(() -> scan.firmwareUpdate(binFile, call));
+    }
+
+    @Override
+    public void setImpinjSaveTagFocus(boolean blnOpen) {
+        handleError(() -> scan.setImpinjSaveTagFocus(blnOpen));
+    }
+
+    @Override
+    public void setTagMask(byte btMaskNo, byte btTarget, byte btAction, byte btMembank, byte btStartAdd, byte btMaskLen, byte[] maskValue) {
+        handleError(() -> scan.setTagMask(btMaskNo, btTarget, btAction, btMembank, btStartAdd, btMaskLen, maskValue));
+    }
+
+    @Override
+    public void clearTagMask(byte btMaskNo) {
+        handleError(() -> scan.clearTagMask(btMaskNo));
+    }
+
+    @Override
+    public void getTagMask() {
+        handleError(() -> scan.getTagMask());
+    }
+
     private void handleError(Call call) {
         try {
             call.run();

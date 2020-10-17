@@ -1,14 +1,15 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
 
 android {
     compileSdkVersion 26
     buildToolsVersion "26.0.3"
 
     defaultConfig {
-        minSdkVersion 14
+        minSdkVersion 19
         targetSdkVersion 25
-        versionCode 2
-        versionName "1.1.0"
+        versionCode 4
+        versionName "1.1.2"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
@@ -19,6 +20,9 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    }
+    lintOptions {
+        abortOnError false
     }
     compileOptions {
         sourceCompatibility = 1.8
@@ -32,9 +36,20 @@ android {
     }
 }
 
+publish {
+    userOrg = 'sunmios'
+    groupId = 'com.sunmi'
+    artifactId = 'rfidlibrary'
+    publishVersion = '1.1.2'
+    desc = 'interface to sunmi rfid service'
+    website = 'http://www.sunmi.com/'
+    licences = ['Apache-2.0']
+}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     testImplementation 'junit:junit:4.13'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 }
+

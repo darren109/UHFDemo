@@ -424,6 +424,58 @@ public interface RFIDHelper {
      */
     void reset();
 
+
+    //----------------Battery---------------
+
+    /**
+     * get charge number of times
+     */
+    void getBatteryChargeNumTimes();
+
+    //----------------Firmware Update---------------
+
+    /**
+     * Firmware Update
+     *
+     * @param binFile update file path
+     * @param call    update call
+     */
+    void firmwareUpdate(String binFile, IFirmwareUpdateCall call);
+
+    //----------------6C Tag Operation---------------
+
+    /**
+     * set impinj save tag focus
+     */
+    void setImpinjSaveTagFocus(boolean blnOpen);
+
+    //----------------Mask filter---------------
+
+    /**
+     * Set the mask filter the Tag.
+     *
+     * @param btMaskNo   Mask Filter No
+     * @param btTarget   Set the inventory way(s0,s1,s2 or s3),you must use you set target to inventory the tag.
+     * @param btAction   The match tag or not Action,you can see the detail of this command.
+     * @param btMembank  The select mask region,EPC,TID or USER.
+     * @param btStartAdd The mask start address(according to bit).
+     * @param btMaskLen  The mask length (according to bit).
+     * @param maskValue  The mask value.
+     */
+    void setTagMask(byte btMaskNo, byte btTarget, byte btAction, byte btMembank, byte btStartAdd, byte btMaskLen, byte[] maskValue);
+
+    /**
+     * Clear the mask setting.
+     *
+     * @param btMaskNo Mask Filter No
+     */
+    void clearTagMask(byte btMaskNo);
+
+    /**
+     * Get the mask setting.
+     */
+    void getTagMask();
+
     public interface Call {
         void run() throws RemoteException;
     }

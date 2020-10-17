@@ -93,7 +93,7 @@ public class Tag6bInventoryActivity extends AppCompatActivity implements View.On
         }
 
         @Override
-        public void onFiled(byte cmd, byte errorCode, String msg) throws RemoteException {
+        public void onFailed(byte cmd, byte errorCode, String msg) throws RemoteException {
             if (cmd == CMD.ISO18000_6B_INVENTORY) {
                 if (!isDestroyed()) {
                     runOnUiThread(() -> {

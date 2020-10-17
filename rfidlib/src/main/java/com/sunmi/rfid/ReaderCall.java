@@ -12,5 +12,5 @@ public abstract class ReaderCall extends IReaderCall.Stub {
     public abstract void onTag(byte cmd, byte state, DataParameter tag) throws RemoteException;
 
     @Override
-    public abstract void onFiled(byte cmd, byte errorCode, String msg) throws RemoteException;
+    public abstract void onFailed(byte cmd, byte errorCode, String msg) throws RemoteException;
 }
